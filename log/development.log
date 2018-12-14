@@ -114,3 +114,755 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 65ms (Views: 62.4ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserToHistories (20181213230710)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "histories" ADD "user_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX "index_histories_on_user_id" ON "histories" ("user_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181213230710"]]
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_histories_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_histories_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-13 21:32:17 -0300
+  
+ArgumentError (Invalid route name, already in use: 'new_user_session' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+http://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:6:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-13 21:34:19 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.2) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.2) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.2) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToUser (20181213235525)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "name" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "username" varchar[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (14.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181213235525"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_histories_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_histories_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-13 21:36:36 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.5ms)
+  Rendered shared/_navbar.html.erb (0.4ms)
+Completed 200 OK in 115ms (Views: 100.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-13 21:36:46 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.9ms)
+  Rendered shared/_navbar.html.erb (0.5ms)
+Completed 200 OK in 90ms (Views: 88.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2018-12-13 21:36:50 -0300
+Processing by Users::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (6.4ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+Completed 200 OK in 71ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2018-12-13 21:46:49 -0300
+Processing by Users::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (7.7ms)
+  Rendered shared/_navbar.html.erb (344.1ms)
+Completed 500 Internal Server Error in 431ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `logged?' for #<#<Class:0x00007f8697536bd0>:0x00007f869b3a8530>
+Did you mean?  logger?
+               logger
+               logger=):
+    25:             <% end %>
+    26:           <span class="caret"></span></a>
+    27:           <ul class="dropdown-menu" role="menu">
+    28:             <% if logged? %>
+    29:             <li><a href="<%= session_path(current_user)%>" data-method="DELETE">Logout</a></li>
+    30:             <% else %>
+    31:             <li><a href="<%= users_sign_in_path %>">Login</a></li>
+  
+app/views/shared/_navbar.html.erb:28:in `_app_views_shared__navbar_html_erb__2338125240770693083_70108052658920'
+app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb___3568895071987523565_70108017275880'
+Started GET "/users/password/new" for 127.0.0.1 at 2018-12-13 21:47:14 -0300
+Processing by Users::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (6.4ms)
+  Rendered shared/_navbar.html.erb (419.0ms)
+Completed 500 Internal Server Error in 488ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `users_signed_in?' for #<#<Class:0x00007f8697536bd0>:0x00007f86976a3158>
+Did you mean?  user_signed_in?):
+    25:             <% end %>
+    26:           <span class="caret"></span></a>
+    27:           <ul class="dropdown-menu" role="menu">
+    28:             <% if users_signed_in? %>
+    29:             <li><a href="<%= session_path(current_user)%>" data-method="DELETE">Logout</a></li>
+    30:             <% else %>
+    31:             <li><a href="<%= users_sign_in_path %>">Login</a></li>
+  
+app/views/shared/_navbar.html.erb:28:in `_app_views_shared__navbar_html_erb__2338125240770693083_70108060429540'
+app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb___3568895071987523565_70108055216060'
+Started GET "/users/password/new" for 127.0.0.1 at 2018-12-13 21:47:27 -0300
+Processing by Users::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (7.3ms)
+  Rendered shared/_navbar.html.erb (634.5ms)
+Completed 500 Internal Server Error in 698ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `users_sign_in_path' for #<#<Class:0x00007f8697536bd0>:0x00007f869b31a0f0>
+Did you mean?  users_admin_path):
+    28:             <% if user_signed_in? %>
+    29:             <li><a href="<%= session_path(current_user)%>" data-method="DELETE">Logout</a></li>
+    30:             <% else %>
+    31:             <li><a href="<%= users_sign_in_path %>">Login</a></li>
+    32:             <li><a href="<%= users_sign_up_path %>">Sign up</a></li>
+    33:             <% end %>
+    34:           </ul>
+  
+app/views/shared/_navbar.html.erb:31:in `_app_views_shared__navbar_html_erb__2338125240770693083_70108016721120'
+app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb___3568895071987523565_70108052947280'
+Started GET "/users/password/new" for 127.0.0.1 at 2018-12-13 21:47:37 -0300
+Processing by Users::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (7.3ms)
+  Rendered shared/_navbar.html.erb (692.5ms)
+Completed 500 Internal Server Error in 761ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_sign_in_path' for #<#<Class:0x00007f8697536bd0>:0x00007f869b7c2e40>
+Did you mean?  user_session_path
+               users_admin_path):
+    28:             <% if user_signed_in? %>
+    29:             <li><a href="<%= session_path(current_user)%>" data-method="DELETE">Logout</a></li>
+    30:             <% else %>
+    31:             <li><a href="<%= user_sign_in_path %>">Login</a></li>
+    32:             <li><a href="<%= user_sign_up_path %>">Sign up</a></li>
+    33:             <% end %>
+    34:           </ul>
+  
+app/views/shared/_navbar.html.erb:31:in `_app_views_shared__navbar_html_erb__2338125240770693083_70108054804960'
+app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb___3568895071987523565_70108021444560'
+Started GET "/users/password/new" for 127.0.0.1 at 2018-12-13 21:49:59 -0300
+Processing by Users::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (7.2ms)
+  Rendered shared/_navbar.html.erb (1.6ms)
+Completed 200 OK in 85ms (Views: 71.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-13 21:50:02 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.5ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+Completed 200 OK in 102ms (Views: 99.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-13 21:50:05 -0300
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.2ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+Completed 200 OK in 104ms (Views: 102.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-12-13 21:51:01 -0300
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eo4qP3a2treb1EdXLjX3VOuc9NYXJDsAl+TjQ3a7d1lBoYdBUFXYlEOLIFI+W/bQCSP0GesgSJ3R4/potUlASQ==", "user"=>{"username"=>"dhidalgog", "name"=>"Daniel", "email"=>"daniel.hg94@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (16.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "daniel.hg94@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "dhidalgog"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "daniel.hg94@gmail.com"], ["encrypted_password", "$2a$11$YWZdFPWg9AhgEsezyvDeFO06SUDVU1UoRQsPaSkHCwVadN66bo1u6"], ["created_at", "2018-12-14 00:51:01.556364"], ["updated_at", "2018-12-14 00:51:01.556364"], ["name", "Daniel"], ["username", "dhidalgog"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 332ms (ActiveRecord: 19.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 21:51:01 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.5ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_navbar.html.erb (3.9ms)
+Completed 200 OK in 61ms (Views: 38.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 21:51:09 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.3ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_navbar.html.erb (2.3ms)
+Completed 200 OK in 48ms (Views: 41.6ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_in" for 127.0.0.1 at 2018-12-13 21:56:37 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/sign_in"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started DELETE "/users/sign_in" for 127.0.0.1 at 2018-12-13 21:57:54 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/sign_in"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-13 21:58:00 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.3ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_navbar.html.erb (2.2ms)
+Completed 200 OK in 55ms (Views: 47.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 21:58:03 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"JNCzM6gJMeOuxWHwnZmyDdOhAowcr5HtNr7CzRbrI5tBANIx8WoROy+jByJRw5KC9T8WNjtuDqRqTeNovR9sfA=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 204 No Content in 46ms (ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 21:58:06 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"JNCzM6gJMeOuxWHwnZmyDdOhAowcr5HtNr7CzRbrI5tBANIx8WoROy+jByJRw5KC9T8WNjtuDqRqTeNovR9sfA=="}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 21:58:10 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"JNCzM6gJMeOuxWHwnZmyDdOhAowcr5HtNr7CzRbrI5tBANIx8WoROy+jByJRw5KC9T8WNjtuDqRqTeNovR9sfA=="}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 21:58:12 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"JNCzM6gJMeOuxWHwnZmyDdOhAowcr5HtNr7CzRbrI5tBANIx8WoROy+jByJRw5KC9T8WNjtuDqRqTeNovR9sfA=="}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 21:58:13 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.4ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (2.5ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+Completed 200 OK in 48ms (Views: 43.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-13 21:58:16 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.1ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+Completed 200 OK in 74ms (Views: 69.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-12-13 21:58:22 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hHP+5/nOPKmpbch4TG6dMmiHqo6w5mFLoIBupiyff/H8ClLTwobFVrKX2Lbb+jeLMzqRsNPY2TV4me9lPMExrg==", "user"=>{"email"=>"daniel.hg94@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.hg94@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 200ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 21:58:23 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.2ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_navbar.html.erb (2.0ms)
+Completed 200 OK in 44ms (Views: 38.7ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 21:58:25 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"yWarzE3e2lAOZuuqVrVwimbyz+k+2w+v1f8ImmRZs4aMdbSlft+ipY0J7S/U5Cc1RfOQWvRfiIIqWvhKqOGr+w=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 204 No Content in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 22:00:07 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.1ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (3.6ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+Completed 200 OK in 55ms (Views: 46.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-13 22:00:09 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.3ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+Completed 200 OK in 74ms (Views: 54.5ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-12-13 22:00:14 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OTkyKf8OrFDTF26vNmg24ET2z2WsYP4w5of1AafdYVx0Mt9bl7v70nnXLIxnvcoueVEjAwld9pS49YkFCajDIA==", "user"=>{"email"=>"daniel.hg94@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `configure_sign_in_params' for #<Users::SessionsController:0x00007f86996d7f28>):
+  
+activesupport (5.1.2) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.2) lib/active_support/callbacks.rb:178:in `block (2 levels) in halting_and_conditional'
+actionpack (5.1.2) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.2) lib/active_support/callbacks.rb:179:in `block in halting_and_conditional'
+activesupport (5.1.2) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.2) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.2) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.2) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.2) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.2) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.2) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.2) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.2) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.2) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.2) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.2) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.2) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.2) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.2) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.2) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.2) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.2) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.1.2) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.1.2) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.2) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.2) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.2) lib/action_dispatch/routing/route_set.rb:832:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.2) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.2) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.2) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-12-13 22:00:58 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OTkyKf8OrFDTF26vNmg24ET2z2WsYP4w5of1AafdYVx0Mt9bl7v70nnXLIxnvcoueVEjAwld9pS49YkFCajDIA==", "user"=>{"email"=>"daniel.hg94@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.hg94@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 199ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 22:00:58 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.2ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_navbar.html.erb (2.4ms)
+Completed 200 OK in 49ms (Views: 40.5ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 22:01:03 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"HlnC1GPrgGw/X1b9CF7uL9vZVMQUiU2hSqtJlnWWFA931SXl79RJcHILv9Aoqw/8jBmNgNIUovW7NTGxR4MTbQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 204 No Content in 7ms (ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 22:01:05 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"HlnC1GPrgGw/X1b9CF7uL9vZVMQUiU2hSqtJlnWWFA931SXl79RJcHILv9Aoqw/8jBmNgNIUovW7NTGxR4MTbQ=="}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 22:01:07 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"HlnC1GPrgGw/X1b9CF7uL9vZVMQUiU2hSqtJlnWWFA931SXl79RJcHILv9Aoqw/8jBmNgNIUovW7NTGxR4MTbQ=="}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 22:01:07 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.3ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (2.0ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+Completed 200 OK in 43ms (Views: 37.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-13 22:01:10 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.9ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+Completed 200 OK in 71ms (Views: 67.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-13 22:03:07 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.2ms)
+  Rendered shared/_navbar.html.erb (1.2ms)
+Completed 200 OK in 81ms (Views: 56.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-13 22:03:09 -0300
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (9.5ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+Completed 200 OK in 57ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-13 22:03:12 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.1ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+Completed 200 OK in 81ms (Views: 77.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-12-13 22:03:19 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CGZf9wtzm3OF3pgetmUqSAlMcdfA4aNmgG7JKdVWw6K4GW0dO5J6eIRtpZz7oe25angVKJKxhqS0J6R9wt5Sng==", "user"=>{"email"=>"daniel.hg94@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.hg94@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 176ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 22:03:19 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.3ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_navbar.html.erb (2.3ms)
+Completed 200 OK in 47ms (Views: 37.4ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 22:03:21 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"YkyhbDs26bJRitmEH1P2FLZ/eGE+bcFizQ7KgIDSvD1a3TTI4Hsw+QybxhRJXbmd1z0i+RQJKlxcgg8/IVqpTA=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 204 No Content in 6ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 22:03:49 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.2ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (2.6ms)
+  Rendered shared/_navbar.html.erb (2.0ms)
+Completed 200 OK in 55ms (Views: 47.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-13 22:03:53 -0300
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.6ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+Completed 200 OK in 70ms (Views: 66.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-13 22:03:55 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.8ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+Completed 200 OK in 71ms (Views: 68.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-12-13 22:04:02 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gmjzyQKa0ESGhVFzzDaEYRKOIMQWEnMdyNOj4W6C5mCWqSScymXf7Y+1Xv1t5j4QrlUdvewCGA0BC6iAtN6OKw==", "user"=>{"email"=>"daniel.hg94@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.hg94@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 156ms (ActiveRecord: 0.5ms)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gmjzyQKa0ESGhVFzzDaEYRKOIMQWEnMdyNOj4W6C5mCWqSScymXf7Y+1Xv1t5j4QrlUdvewCGA0BC6iAtN6OKw==", "user"=>{"email"=>"daniel.hg94@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.2ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+Completed 200 OK in 215ms (Views: 64.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-12-13 22:04:08 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YvCRLyP4p2/NGFIJdY3wqhDIU6rZTeco1mKnY31kGNnf2USphjQQ3TKxmTdwTIUfWwtnAmom1k7TBAb8jH/svw==", "user"=>{"email"=>"daniel.hg94@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "daniel.hg94@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 174ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 22:04:08 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.2ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_navbar.html.erb (2.1ms)
+Completed 200 OK in 41ms (Views: 36.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 22:04:15 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"cItP7aoLipYJ3d6E/fGkYcv4YWQIxPiT4ntJ+e7V5Z2Zv0u0yacE2fVVgKilhj21UgBZMxKN3R5VjnDdfjapDw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 204 No Content in 5ms (ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 22:04:18 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"cItP7aoLipYJ3d6E/fGkYcv4YWQIxPiT4ntJ+e7V5Z2Zv0u0yacE2fVVgKilhj21UgBZMxKN3R5VjnDdfjapDw=="}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out.1" for 127.0.0.1 at 2018-12-13 22:04:20 -0300
+Processing by Users::SessionsController#destroy as 
+  Parameters: {"authenticity_token"=>"cItP7aoLipYJ3d6E/fGkYcv4YWQIxPiT4ntJ+e7V5Z2Zv0u0yacE2fVVgKilhj21UgBZMxKN3R5VjnDdfjapDw=="}
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-13 22:04:21 -0300
+Processing by HistoriesController#index as HTML
+  Rendering histories/index.html.erb within layouts/application
+  [1m[36mHistory Load (0.3ms)[0m  [1m[34mSELECT "histories".* FROM "histories"[0m
+  Rendered histories/index.html.erb within layouts/application (2.2ms)
+  Rendered shared/_navbar.html.erb (1.4ms)
+Completed 200 OK in 43ms (Views: 37.3ms | ActiveRecord: 0.3ms)
+
+
