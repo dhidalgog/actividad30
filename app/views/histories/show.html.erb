@@ -10,7 +10,8 @@
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-          <h1><%= @history.title %></h1>
+          <h1><%= @history.title %> </h1>
+          <p>by:<%= @history.user.username %></p>
           <small><%= time_ago_in_words(@history.created_at) %> ago</small>
         </div>
         <div class="col-md-2"></div>
